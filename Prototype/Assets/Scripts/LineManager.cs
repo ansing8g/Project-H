@@ -12,7 +12,7 @@ public class LineManager : Singleton<LineManager>
     private Vector3 m_force = Define.VECTOR3_ZERO;
     private const float SIMULATION_TIME = 0.02f;
 
-    public void Play(Arrow arrow, Vector3 angle)
+    public void Play(Arrow arrow, Vector3 angle, float power)
     {
         m_listPoint.Clear();
 
@@ -20,7 +20,7 @@ public class LineManager : Singleton<LineManager>
         {
             float mass = arrow.mass;
             m_position = arrow.transform.position;
-            m_force = angle * arrow.power;
+            m_force = angle * power;
 
             m_listPoint.Add(m_position);
 
@@ -34,6 +34,22 @@ public class LineManager : Singleton<LineManager>
 
             lineRenderer.positionCount = m_listPoint.Count;
             lineRenderer.SetPositions(m_listPoint.ToArray());
+        }
+    }
+
+    public void Show()
+    {
+        if(lineRenderer != null)
+        {
+            lineRenderer.enabled = true;
+        }
+    }
+
+    public void Hide()
+    {
+        if (lineRenderer != null)
+        {
+            lineRenderer.enabled = false;
         }
     }
 

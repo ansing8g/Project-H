@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TreeEditor;
 using UnityEngine;
 
 public class Arrow : MonoBehaviour
@@ -13,7 +12,6 @@ public class Arrow : MonoBehaviour
     }
 
     public float mass;
-    public float power;
 
     private State m_state = State.Ready;
 
@@ -42,7 +40,7 @@ public class Arrow : MonoBehaviour
         m_onArrival.UInvoke(transform.position);
     }
 
-    public void Shoot(Vector3 angle)
+    public void Shoot(Vector3 angle, float power)
     {
         Debug.Log("Arrow.Shoot() angle = " + angle);
 
