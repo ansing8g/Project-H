@@ -212,6 +212,16 @@ public static partial class Utility
     }
     #endregion UITexture
 
+    #region UISlider
+    public static void UValue(this UISlider slider, float value)
+    {
+        if(slider != null)
+        {
+            slider.value = value;
+        }
+    }
+    #endregion UISlider
+
     #region UIEventListener
     public static void UOnClick(this GameObject gameObject, UIEventListener.VoidDelegate onClick)
     {
